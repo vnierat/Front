@@ -122,4 +122,5 @@ var mdpUser = prompt("votre mot de passe ?","<Saisissez votre mot de passe>");
 if(monUtilisateurEstCorrect(emailUser,mdpUser)) {
     alert('Bienvenue ' + emailUser);
 } else {
-   alert('ATTENTION, email/mot de passe incorrect.');
+   alert('ATTENTION, email/mot de passe incorrect.')
+}
