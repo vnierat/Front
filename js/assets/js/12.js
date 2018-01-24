@@ -50,6 +50,3 @@ for(let i = 0 ; i < BaseDeDonnees.length ; i++) {
 if(!isEmailInArray) {
     alert('ATTENTION, Email / Mot de Passe incorrect !');
 }
-
-
-
