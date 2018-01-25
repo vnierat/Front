@@ -51,12 +51,11 @@ pseudo.addEventListener('input', function () {
     }
 });
 
-age.addEventListener('input', function () {
+age.addEventListener('change', function () {
     for(let i = 0 ; i < membres.length ; i++) {
         if(age.value<18) {
             ageError.style.display = "block";
             submit.disabled = true;
-            break;
         } else {
             ageError.style.display = "none";
             submit.disabled = false;
@@ -64,14 +63,36 @@ age.addEventListener('input', function () {
     }
 });
 
-function Ajout() {
-    if(age>18 && pseudo.value != membres[i].pseudo) {
-
+InscriptionForm.addEventListener('submit', function(event){
+    event.preventDefault();
+    let membre = {
+        pseudo : pseudo.value,
+        age    : age.value,
+        email  : email.value,
+        mdp    : mdp.value
     }
-}
+    membres.push(membre);
+    console.log(membres);
 
 
+    var p = document.createElement('p');
+            p.innerHTML = "Merci " + pseudo.value + "! <strong>Tu es maintenant inscrit.</strong><br><br><u>Voici la liste de nos membres :</u>";
+            document.body.appendChild(p);
 
+            // -- Générer la liste des membres
+            var ul = document.createElement('ul');
+            for(let i = 0 ; i < membres.length ; i++) {
+                
+                let li = document.createElement('li');
+                let liste = membres[i].pseudo + " : " + membres[i].age + " ans";
+                li.textContent = liste;
+                ul.appendChild(li);
+            }
+            
+            // -- Affichage dans la page.
+            document.body.appendChild(ul);
+
+});
 
 
 
