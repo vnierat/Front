@@ -24,5 +24,25 @@
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
 
+    <script>
+    $('#MonFormulaire').on('submit', function(e) {
+        // cette fonction anonyme sera executée à la soumission du formulaire
+        // permet d'annuler l'action par défaut du submit (la redirection HTML)
+        e.preventDefault();
+        console.log($(this));
+
+        $(this).replaceWith('<p>Bonjour ' + $('#nomcomplet').val() + ' !</p>');
+
+        // Version plus longue
+
+        $('#MonFormulaire').hide();
+        $('<p>').append('Bonjour ' + $('#nomcomplet').val() + ' !').appendTo($('body'));
+
+        // Autre exemple
+        $('#MonFormulaire').hide();
+        
+    });
+    </script>
+
 </body>
 </html>
