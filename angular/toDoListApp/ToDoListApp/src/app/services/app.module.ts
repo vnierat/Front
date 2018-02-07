@@ -3,18 +3,23 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import {FormsModule} from '@angular/forms';
+import { AddtaskComponent } from '../addtask/addtask.component';
+import {FormsModule} from "@angular/forms";
+import {TaskService} from "../task/task.service";
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddtaskComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    TaskService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
