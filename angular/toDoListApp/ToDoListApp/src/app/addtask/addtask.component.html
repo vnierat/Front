@@ -1,4 +1,4 @@
-<form #form="ngForm" (ngSubmit)="addTask()"
+<form #form="ngForm" (ngSubmit)="addTask()" *ngIf="active"
       class="form-inline my-2 my-lg-0">
 
   <input class="form-control mr-sm-2" required
@@ -8,8 +8,8 @@
          aria-label="Ajouter une tâche...">
 
   <button class="btn my-2 my-sm-0" type="submit"
-          [disabled]="form.invalid && form.touched">
-    <span class="oi oi-plus"></span>Ajouter
+          [disabled]="form.invalid">
+    <span class="oi oi-plus"></span> Ajouter
   </button>
 
 </form>

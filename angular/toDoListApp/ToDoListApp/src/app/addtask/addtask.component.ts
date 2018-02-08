@@ -1,6 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Task} from '../models/task';
-import {setTimeout} from "timers";
 
 @Component({
   selector: 'app-addtask',
@@ -21,6 +20,11 @@ export class AddtaskComponent implements OnInit {
    * @type {Task}
    */
   task: Task = new Task();
+
+  /**
+   * Permet de réinitialiser le formulaire.
+   * @type {boolean}
+   */
   active: boolean = true;
 
   constructor() { }

@@ -17,16 +17,18 @@
         <hr>
         <ul id="sortable" class="list-unstyled">
 
-
-          <li class="ui-state-default" *ngFor="let task of tasks">
+          <li class="ui-state-default"
+              *ngFor="let task of tasks | taskFilter : false">
             <div class="checkbox">
               <label>
                 <input (click)="taskIsDone(task)" type="checkbox" value="" />{{ task.titre }}</label>
             </div>
           </li>
+
         </ul>
         <div class="todo-footer bg-dark text-white">
-          <strong><span class="count-todos"></span></strong> Nombre de tâches restantes : 4
+          <strong><span class="count-todos"></span></strong>
+          Nombre de tâches restantes : {{ getNbDoneTasks() }}
         </div>
       </div>
     </div>
@@ -34,9 +36,9 @@
       <div class="todolist">
         <h1>Terminées</h1>
         <ul id="done-items" class="list-unstyled">
-          <li>
-            Some item
-            <button type="button" class="close" aria-label="Close">
+          <li *ngFor="let task of tasks | taskFilter : true">
+            {{ task.titre }}
+            <button (click)="removeTask(task)" type="button" class="close" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </li>
